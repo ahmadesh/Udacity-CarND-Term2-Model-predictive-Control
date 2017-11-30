@@ -1,0 +1,684 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		60970CAFF9AF412985C61702 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7B95B5DDAB43463C8EFCBA63 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				4355EF8292454A7D950D0AFE /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+		9D6DAA21F8EF43ABAC96E93C /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 59D9AF72E5EE4C60AA824A1E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				93CB5CE7A4E947E392B9FA4B /* CMake Rules */,
+			);
+			dependencies = (
+				F4AECEB8EF9844F4834056CE /* PBXTargetDependency */,
+				7E70D04D9F024428BB49FA66 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		15834AADE05E46C18F7150BF /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/main.cpp */ = {isa = PBXBuildFile; fileRef = 77E1C1B3E70942FAA8C580FD /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/main.cpp */; };
+		2CE20DB02F4C4F8CBE77A3A9 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */ = {isa = PBXBuildFile; fileRef = 7AF2B489FF9441B9BAAC9C97 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */; };
+		312E93DA4EAC4FC2AF69AE2A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.h */ = {isa = PBXBuildFile; fileRef = EF7125BF7D20435EA70A8890 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.h */; };
+		E84184B840B7418EB4F48692 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.cpp */ = {isa = PBXBuildFile; fileRef = 98A00AF91092444CAABEEE2A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXBuildStyle section */
+		100F59E32AFD48BA86A1D80C /* Debug */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Debug;
+		};
+		1B31CD69CBC8471E8A4E8E9E /* MinSizeRel */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = MinSizeRel;
+		};
+		3EEBF908A18F489CA8973272 /* Release */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = Release;
+		};
+		D5C3302AA0E14045B1822F57 /* RelWithDebInfo */ = {
+			isa = PBXBuildStyle;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+			};
+			name = RelWithDebInfo;
+		};
+/* End PBXBuildStyle section */
+
+/* Begin PBXContainerItemProxy section */
+		9448CBDC8C2C419C8F6B3441 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE3631493FB545818891F451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60970CAFF9AF412985C61702;
+			remoteInfo = ZERO_CHECK;
+		};
+		CC4E8FCB2D824F2CA46B2D4B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE3631493FB545818891F451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 60970CAFF9AF412985C61702;
+			remoteInfo = ZERO_CHECK;
+		};
+		EB82EFC5661F48FCB77E9E84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE3631493FB545818891F451 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 391EAFAF3D5647E0AAC81D0A;
+			remoteInfo = mpc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0503A0D1933249A6BDCD262E /* mpc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = mpc; sourceTree = BUILT_PRODUCTS_DIR; };
+		54CD56896FE649BE92C5FA0A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		77E1C1B3E70942FAA8C580FD /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		7AF2B489FF9441B9BAAC9C97 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		98A00AF91092444CAABEEE2A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = MPC.cpp; path = src/MPC.cpp; sourceTree = SOURCE_ROOT; };
+		D233157E280F42FF960D607A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; name = CMakeLists.txt; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		EF7125BF7D20435EA70A8890 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = MPC.h; path = src/MPC.h; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		44DB5D6F0D4A419CA00D78F1 /* mpc */ = {
+			isa = PBXGroup;
+			children = (
+				873D7D1E373341E6AA01664B /* Source Files */,
+				EA6EC91B7ED54483BDC759CC /* Header Files */,
+				7AF2B489FF9441B9BAAC9C97 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */,
+			);
+			name = mpc;
+			sourceTree = "<group>";
+		};
+		873D7D1E373341E6AA01664B /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				98A00AF91092444CAABEEE2A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.cpp */,
+				77E1C1B3E70942FAA8C580FD /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		A42C4805DF00496D9BBC18D6 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		A614DEEBB3834CBC810C458E /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		ADD24D3752584395A7A08C3B /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				A42C4805DF00496D9BBC18D6 /* CMake Rules */,
+				54CD56896FE649BE92C5FA0A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		B88DD527CEF94EF8B34E45A4 = {
+			isa = PBXGroup;
+			children = (
+				44DB5D6F0D4A419CA00D78F1 /* mpc */,
+				F109D51BEDA04F7496535EB4 /* ALL_BUILD */,
+				ADD24D3752584395A7A08C3B /* ZERO_CHECK */,
+				F2671AC35D024EC78CAF6C81 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EA6EC91B7ED54483BDC759CC /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF7125BF7D20435EA70A8890 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		F109D51BEDA04F7496535EB4 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				A614DEEBB3834CBC810C458E /* CMake Rules */,
+				D233157E280F42FF960D607A /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		F2671AC35D024EC78CAF6C81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0503A0D1933249A6BDCD262E /* mpc */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		391EAFAF3D5647E0AAC81D0A /* mpc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 881E6937699A4E38914842F1 /* Build configuration list for PBXNativeTarget "mpc" */;
+			buildPhases = (
+				EB11920C6DD14557B9B29192 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				25327956116F47D692714A64 /* PBXTargetDependency */,
+			);
+			name = mpc;
+			productName = mpc;
+			productReference = 0503A0D1933249A6BDCD262E /* mpc */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FE3631493FB545818891F451 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 0910;
+			};
+			buildConfigurationList = 278605CF378E431C9237B51F /* Build configuration list for PBXProject "MPC" */;
+			buildSettings = {
+			};
+			buildStyles = (
+				100F59E32AFD48BA86A1D80C /* Debug */,
+				3EEBF908A18F489CA8973272 /* Release */,
+				1B31CD69CBC8471E8A4E8E9E /* MinSizeRel */,
+				D5C3302AA0E14045B1822F57 /* RelWithDebInfo */,
+			);
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			mainGroup = B88DD527CEF94EF8B34E45A4;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				9D6DAA21F8EF43ABAC96E93C /* ALL_BUILD */,
+				60970CAFF9AF412985C61702 /* ZERO_CHECK */,
+				391EAFAF3D5647E0AAC81D0A /* mpc */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4355EF8292454A7D950D0AFE /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode -f /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		6857EFD3605D405D89A50F8D = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+		93CB5CE7A4E947E392B9FA4B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode -f /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		E50E6594B34146A5B023AD97 = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here
+exit 0";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB11920C6DD14557B9B29192 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E84184B840B7418EB4F48692 /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/MPC.cpp */,
+				15834AADE05E46C18F7150BF /* /Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/main.cpp */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		25327956116F47D692714A64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60970CAFF9AF412985C61702 /* ZERO_CHECK */;
+			targetProxy = CC4E8FCB2D824F2CA46B2D4B /* PBXContainerItemProxy */;
+		};
+		7E70D04D9F024428BB49FA66 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 60970CAFF9AF412985C61702 /* ZERO_CHECK */;
+			targetProxy = 9448CBDC8C2C419C8F6B3441 /* PBXContainerItemProxy */;
+		};
+		F4AECEB8EF9844F4834056CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 391EAFAF3D5647E0AAC81D0A /* mpc */;
+			targetProxy = EB82EFC5661F48FCB77E9E84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0B4AF44DA9294AB8A0AC009D /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib";
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib /usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/Cellar/libuv/1*/lib";
+				OTHER_CPLUSPLUSFLAGS = "-Wall     -DNDEBUG   -std=c++11 -O3";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lipopt -lz -lssl -luv -luWS";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mpc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		0F5883E1127342D5916E1E9D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib";
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib /usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/Cellar/libuv/1*/lib";
+				OTHER_CPLUSPLUSFLAGS = "-Wall     -DNDEBUG   -std=c++11 -O3";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lipopt -lz -lssl -luv -luWS";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mpc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		1385F030898F4E109E933CC6 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/build";
+			};
+			name = MinSizeRel;
+		};
+		41FA8E2337344DF69E12CB09 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/build";
+			};
+			name = RelWithDebInfo;
+		};
+		657114AB24C547F6AA3B817C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		66A4AFDBE9164872B3A075D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		7ED95A4FD99242739F5E575D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib";
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib /usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/Cellar/libuv/1*/lib";
+				OTHER_CPLUSPLUSFLAGS = "-Wall      -std=c++11 -O3";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lipopt -lz -lssl -luv -luWS";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mpc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		86668CFCD754445382ABB576 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Release;
+		};
+		8850159B517C42C2A57D088C /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		8D3466CBEA764F86997290AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/build";
+			};
+			name = Debug;
+		};
+		93DA5DBB449848D0A881B7DF /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				LD_RUNPATH_SEARCH_PATHS = "/usr/local/lib /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib";
+				LIBRARY_SEARCH_PATHS = " /usr/local/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/lib /usr/local/opt/openssl/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/opt/openssl/lib /usr/local/Cellar/libuv/1*/lib/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME) /usr/local/Cellar/libuv/1*/lib";
+				OTHER_CPLUSPLUSFLAGS = "-Wall        -DNDEBUG   -std=c++11 -O3";
+				OTHER_LDFLAGS = " -Wl,-search_paths_first -Wl,-headerpad_max_install_names  -lipopt -lz -lssl -luv -luWS";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = mpc;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+		989446E2C9934801B8BBA5B9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = Debug;
+		};
+		B4C45E7812B44CFE8D949079 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		CCB7F51ADF1A4C1F80C2133D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk;
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode/build";
+			};
+			name = Release;
+		};
+		EF29D9EFFE8E48248B9513FB /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = MinSizeRel;
+		};
+		FF1E6C4F995B466491834B7B /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = ("'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'");
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (/usr/local/include,"/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/src/Eigen-3.3",/usr/local/opt/openssl/include);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = "/Users/ahmad/Dropbox/SDND/Term2/Udacity-CarND-Term2-Model-predictive-Control/xcode";
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = ("-Wmost","-Wno-four-char-constants","-Wno-unknown-pragmas","$(inherited)");
+			};
+			name = RelWithDebInfo;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		278605CF378E431C9237B51F /* Build configuration list for PBXProject "MPC" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D3466CBEA764F86997290AB /* Debug */,
+				CCB7F51ADF1A4C1F80C2133D /* Release */,
+				1385F030898F4E109E933CC6 /* MinSizeRel */,
+				41FA8E2337344DF69E12CB09 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		59D9AF72E5EE4C60AA824A1E /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				989446E2C9934801B8BBA5B9 /* Debug */,
+				66A4AFDBE9164872B3A075D7 /* Release */,
+				B4C45E7812B44CFE8D949079 /* MinSizeRel */,
+				8850159B517C42C2A57D088C /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		7B95B5DDAB43463C8EFCBA63 /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				657114AB24C547F6AA3B817C /* Debug */,
+				86668CFCD754445382ABB576 /* Release */,
+				EF29D9EFFE8E48248B9513FB /* MinSizeRel */,
+				FF1E6C4F995B466491834B7B /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		881E6937699A4E38914842F1 /* Build configuration list for PBXNativeTarget "mpc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7ED95A4FD99242739F5E575D /* Debug */,
+				0F5883E1127342D5916E1E9D /* Release */,
+				0B4AF44DA9294AB8A0AC009D /* MinSizeRel */,
+				93DA5DBB449848D0A881B7DF /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FE3631493FB545818891F451 /* Project object */;
+}
