@@ -106,12 +106,12 @@ int main() {
           double epsi = -atan(coeffs[1]);
             
           Eigen::VectorXd state(6);
-            state[0] = 0;
-            state[1] = 0;
-            state[2] = 0;
-            state[3] = v;
-            state[4] = cte;
-            state[5] = epsi;
+          state[0] = 0;
+          state[1] = 0;
+          state[2] = 0;
+          state[3] = v;
+          state[4] = cte;
+          state[5] = epsi;
           auto res = mpc.Solve(state, coeffs);
 
           /*
@@ -120,8 +120,8 @@ int main() {
           * Both are in between [-1, 1].
           *
           */
-          double steer_value = res[0];
-          double throttle_value = res[2];
+          double steer_value = -res[0];
+          double throttle_value = res[1];
 
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
@@ -145,10 +145,12 @@ int main() {
 
           //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
           // the points in the simulator are connected by a Yellow line
-
+          for (auto i=0; i<ptsx.size() ; ++i) {
+                next_x_vals.push_back(ptsx_shifted(i));
+                next_y_vals.push_back(ptsy_shifted(i));
+          }
           msgJson["next_x"] = next_x_vals;
           msgJson["next_y"] = next_y_vals;
-
 
           auto msg = "42[\"steer\"," + msgJson.dump() + "]";
           std::cout << msg << std::endl;
