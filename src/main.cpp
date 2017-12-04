@@ -97,8 +97,8 @@ int main() {
           for (int i = 0; i < ptsx.size(); i++) {
               double xshift = ptsx[i] - px;
               double yshift = ptsy[i] - py;
-              ptsx_shifted(i) = xshift*cos(psi) + yshift*sin(psi);
-              ptsy_shifted(i) = yshift*cos(psi) - xshift*sin(psi);
+              ptsx_shifted(i) = xshift*cos(-psi) - yshift*sin(-psi);
+              ptsy_shifted(i) = xshift*sin(-psi) + yshift*cos(-psi);
           }
             
           Eigen::VectorXd coeffs = polyfit(ptsx_shifted, ptsy_shifted, 3);
@@ -106,12 +106,8 @@ int main() {
           double epsi = -atan(coeffs[1]);
             
           Eigen::VectorXd state(6);
-          state[0] = 0;
-          state[1] = 0;
-          state[2] = 0;
-          state[3] = v;
-          state[4] = cte;
-          state[5] = epsi;
+          state << 0, 0, 0, v, cte, epsi;
+
           auto res = mpc.Solve(state, coeffs);
 
           /*
@@ -120,13 +116,13 @@ int main() {
           * Both are in between [-1, 1].
           *
           */
-          double steer_value = -res[0];
+          double steer_value = res[0];
           double throttle_value = res[1];
 
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
           // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
-          msgJson["steering_angle"] = steer_value;
+          msgJson["steering_angle"] = steer_value/deg2rad(25);
           msgJson["throttle"] = throttle_value;
 
           //Display the MPC predicted trajectory 
@@ -135,6 +131,12 @@ int main() {
 
           //.. add (x,y) points to list here, points are in reference to the vehicle's coordinate system
           // the points in the simulator are connected by a Green line
+          for (auto i=2; i<res.size(); ++i) {
+              if (i%2 == 0)
+                mpc_x_vals.push_back(res[i]);
+              else
+                mpc_y_vals.push_back(res[i]);
+          }
 
           msgJson["mpc_x"] = mpc_x_vals;
           msgJson["mpc_y"] = mpc_y_vals;
@@ -149,6 +151,7 @@ int main() {
                 next_x_vals.push_back(ptsx_shifted(i));
                 next_y_vals.push_back(ptsy_shifted(i));
           }
+            
           msgJson["next_x"] = next_x_vals;
           msgJson["next_y"] = next_y_vals;
 
