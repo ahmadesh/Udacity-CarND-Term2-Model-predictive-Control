@@ -91,7 +91,9 @@ int main() {
           double py = j[1]["y"];
           double psi = j[1]["psi"];
           double v = j[1]["speed"];
-         
+          double delta = j[1]["steering_angle"];
+          double a = j[1]["throttle"];
+            
           Eigen::VectorXd ptsx_shifted = Eigen::VectorXd(ptsx.size());
           Eigen::VectorXd ptsy_shifted = Eigen::VectorXd(ptsy.size());
           for (int i = 0; i < ptsx.size(); i++) {
@@ -104,9 +106,16 @@ int main() {
           Eigen::VectorXd coeffs = polyfit(ptsx_shifted, ptsy_shifted, 3);
           double cte = polyeval(coeffs, 0);
           double epsi = -atan(coeffs[1]);
-            
+           
+          double dt = 0.1;
+          double Lf =  2.67;
           Eigen::VectorXd state(6);
-          state << 0, 0, 0, v, cte, epsi;
+          state(0) = v*dt;
+          state(1) = 0;
+          state(2) = v * -delta / Lf * dt;
+          state(3) = v + a * dt;
+          state(4) = cte + v * sin(psi) * dt;
+          state(5) = epsi - delta / Lf * dt;
 
           auto res = mpc.Solve(state, coeffs);
 
@@ -116,7 +125,7 @@ int main() {
           * Both are in between [-1, 1].
           *
           */
-          double steer_value = res[0];
+          double steer_value = - res[0];
           double throttle_value = res[1];
 
           json msgJson;
