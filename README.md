@@ -26,10 +26,33 @@ The costs are added for the following over time:
 - Summing `delta(t+1)-delta(t)` for smooth steering
 - Summing `a(t+1)-a(t)` for smooth change in acceleration
 
-The code minimizes the cost over time.
+Each one of the cost compnent have weights that determines its importance in planning. I experimented with the weights to find the best set of weights for the performance. 
+
+For planning, the code minimizes the cost function over with the defined constraints. 
 
 # Timestep Length and Frequency
-The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I chose `N=7` and `dt=0.15` for the best performance through experiments. Decreasing or increasing `N` resulted in destabilizing the drive becasue of short or too long planning time. Also increasing `N` for too long could increase the computation cost. 
+The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I chose `N=7` and `dt=0.15` for the best performance through experiments. Decreasing or increasing `N`, with constant frequency, resulted in destabilizing the drive becasue of too short or too long planning time. Also increasing `N` for too long could increase the computation cost. Also, increasing the frequency results in planning with coarse planning that results in instability in turns, while decreasing the frequency with constant timestep length again reduces the planning time. 
+
+# Polynomial Fitting and MPC Preprocessing
+In the main function, waypoints (motion map, ptsx) is transfered into the car coordinates (px,py,psi) with:
+```
+xshift = ptsx - px;
+yshift = ptsy - py;
+x_shifted(i) = xshift*cos(-psi) - yshift*sin(-psi);
+y_shifted(i) = xshift*sin(-psi) + yshift*cos(-psi);
+```
+Then, a 3rd order polynomial is fit to the points and fed to the MPC algorithm for calculations of `cte` and `psi` values over the planning time. After MPC processing, it returns the steering angle that and throttle that is gave to the simulator with proper conversion. The MPC algorithm also returns the planned points with (`N` and `dt`) for the following time.
+
+# Model Predictive Control with Latency
+In order to compensate for the latency, the state variables are projected to the time after latency (current time), based on the kenematics of the motion as: 
+```
+x = v*dt;
+y = 0;
+psi = v * (-delta) / Lf * dt;
+v = v + a * dt;
+cte = cte + v * sin(psi) * dt;
+epsi = epsi - delta / Lf * dt;
+```
 
 
 ## Dependencies
