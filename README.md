@@ -1,7 +1,36 @@
-# CarND-Controls-MPC
-Self-Driving Car Engineer Nanodegree Program
-
+## Model Predictive Control (MPC) for self driving cars
 ---
+
+In this project, a model prdictive control is developed for driving a self driving car in a sumation track.
+
+## Model
+The model state variables consist of the position (x,y), heading direction (psi), velocity (v), cross track error (cte) and heading direction error (epsi). The car is actuated using steering angle (delta) and throttle (a). The model of the car movement gives:
+
+```
+x_[t+1] = x[t] + v[t] * cos(psi[t]) * dt
+y_[t+1] = y[t] + v[t] * sin(psi[t]) * dt
+psi_[t+1] = psi[t] + v[t] / Lf * delta[t] * dt
+v_[t+1] = v[t] + a[t-1] * dt
+cte[t+1] = f(x[t]) - y[t] + v[t] * sin(epsi[t]) * dt
+epsi[t+1] = psi[t] - psides[t] + v[t] * delta[t-1] / Lf * dt
+```
+
+## Cost
+The costs are added for the following over time:
+- Summing the `cte` 
+- Summing the `epsi`
+- Summing the pow2 of the `v` and `reference vel`
+- Summing `delta`
+- Summing `a`
+- Summing the pow2 of `delta`+`v` for steering with high velocity 
+- Summing `delta(t+1)-delta(t)` for smooth steering
+- Summing `a(t+1)-a(t)` for smooth change in acceleration
+
+The code minimizes the cost over time.
+
+# Timestep Length and Frequency
+The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I came up with `N=7` and `dt=0.15` for the best performance through experiments.
+
 
 ## Dependencies
 
