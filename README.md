@@ -54,6 +54,17 @@ cte = cte + v * sin(psi) * dt;
 epsi = epsi - delta / Lf * dt;
 ```
 
+# Results
+In order to verify the performance of the MPC model, in the simulator, I strted the car on the side of the track and recorded the cross track error (`cte`), error in heading direction (`psi`) as the MPC tries to drive the car to the center of the track.
+
+<img src="./Pictures/Errors.png" width="600" alt="Combined Image" />
+
+Initially the car starts with high `cte` but the `psi` is almost correct. The MPC somoothly reduces the `cte` while the `psi` increases (as expected) and returns back to the correct direction.
+
+Also, the actuation values are recorded as shown below. The steering angle is constrained between [-1,1] with high cost for changing direction, therefore the angle smoothly changes and returns back to zero. As the car is initally has zero speed, the throttle is pushed all the way to reach the desired speed and gradually released when close the desired speed (50 mph). The velocity is alos shown that is gradually increased to reach the desired value. 
+
+<img src="./Pictures/Parameters.png" width="600" alt="Combined Image" />
+
 
 ## Dependencies
 
