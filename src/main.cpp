@@ -8,9 +8,14 @@
 #include "Eigen-3.3/Eigen/QR"
 #include "MPC.h"
 #include "json.hpp"
+#include <fstream>
+
+
 
 // for convenience
+using namespace std;
 using json = nlohmann::json;
+
 
 // For converting back and forth between radians and degrees.
 constexpr double pi() { return M_PI; }
@@ -65,14 +70,27 @@ Eigen::VectorXd polyfit(Eigen::VectorXd xvals, Eigen::VectorXd yvals,
   return result;
 }
 
+int counter = 0;
 int main() {
   uWS::Hub h;
 
   // MPC is initialized here!
   MPC mpc;
+    
+  string out_file_name_ = "./output.txt";
+  ofstream out_file_(out_file_name_.c_str(), ofstream::out);
+    
+    out_file_ << "delta" << "\t";
+    out_file_ << "throttle" << "\t";
+    out_file_ << "v" << "\t";
+    out_file_ << "epsi" << "\t";
+    out_file_ << "cte" << "\n";
 
-  h.onMessage([&mpc](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
+  h.onMessage([&mpc, &out_file_](uWS::WebSocket<uWS::SERVER> ws, char *data, size_t length,
                      uWS::OpCode opCode) {
+      counter++;
+      if (counter==100)
+          out_file_.close();
     // "42" at the start of the message means there's a websocket message event.
     // The 4 signifies a websocket message
     // The 2 signifies a websocket event
@@ -112,7 +130,7 @@ int main() {
           Eigen::VectorXd state(6);
           state(0) = v*dt;
           state(1) = 0;
-          state(2) = v * -delta / Lf * dt;
+          state(2) = v * (-delta) / Lf * dt;
           state(3) = v + a * dt;
           state(4) = cte + v * sin(psi) * dt;
           state(5) = epsi - delta / Lf * dt;
@@ -120,7 +138,7 @@ int main() {
           auto res = mpc.Solve(state, coeffs);
 
           /*
-          * TODO: Calculate steering angle and throttle using MPC.
+          * Calculate steering angle and throttle using MPC.
           *
           * Both are in between [-1, 1].
           *
@@ -129,10 +147,18 @@ int main() {
           double throttle_value = res[1];
 
           json msgJson;
-          // NOTE: Remember to divide by deg2rad(25) before you send the steering value back.
+          // NOTE: Divide by deg2rad(25) before you send the steering value back.
           // Otherwise the values will be in between [-deg2rad(25), deg2rad(25] instead of [-1, 1].
           msgJson["steering_angle"] = steer_value/deg2rad(25);
           msgJson["throttle"] = throttle_value;
+            
+            
+            out_file_ << steer_value/deg2rad(25) << "\t";
+            out_file_ << throttle_value << "\t";
+            out_file_ << v << "\t";
+            out_file_ << epsi << "\t";
+            out_file_ << cte << "\n";
+
 
           //Display the MPC predicted trajectory 
           vector<double> mpc_x_vals;
@@ -173,8 +199,7 @@ int main() {
           // Feel free to play around with this value but should be to drive
           // around the track with 100ms latency.
           //
-          // NOTE: REMEMBER TO SET THIS TO 100 MILLISECONDS BEFORE
-          // SUBMITTING.
+
           this_thread::sleep_for(chrono::milliseconds(100));
           ws.send(msg.data(), msg.length(), uWS::OpCode::TEXT);
         }
