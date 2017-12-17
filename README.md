@@ -29,7 +29,7 @@ The costs are added for the following over time:
 The code minimizes the cost over time.
 
 # Timestep Length and Frequency
-The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I came up with `N=7` and `dt=0.15` for the best performance through experiments.
+The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I chose `N=7` and `dt=0.15` for the best performance through experiments. Decreasing or increasing `N` resulted in destabilizing the drive becasue of short or too long planning time. Also increasing `N` for too long could increase the computation cost. 
 
 
 ## Dependencies
