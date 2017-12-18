@@ -1,10 +1,10 @@
 ## Model Predictive Control (MPC) for self driving cars
 ---
 
-In this project, a model prdictive control is developed for driving a self driving car in a sumation track.
+In this project, model prdictive control algorithm is implemented for driving a self driving car in a simulator track.
 
 ## Model
-The model state variables consist of the position (x,y), heading direction (psi), velocity (v), cross track error (cte) and heading direction error (epsi). The car is actuated using steering angle (delta) and throttle (a). The model of the car movement gives:
+The model state variables consist of the position (x,y), heading direction (psi), velocity (v), cross track error (cte) and heading direction error (epsi). The car is actuated using steering angle (delta) and throttle (a). The model of the car motion is calculated as:
 
 ```
 x_[t+1] = x[t] + v[t] * cos(psi[t]) * dt
@@ -16,35 +16,35 @@ epsi[t+1] = psi[t] - psides[t] + v[t] * delta[t-1] / Lf * dt
 ```
 
 ## Cost
-The costs are added for the following over time:
+The costs to minimize consists of the following terms over time:
 - Summing the `cte` 
 - Summing the `epsi`
-- Summing the pow2 of the `v` and `reference vel`
+- Summing the pow2 of the (`v` - `reference vel`)
 - Summing `delta`
 - Summing `a`
-- Summing the pow2 of `delta`+`v` for steering with high velocity 
-- Summing `delta(t+1)-delta(t)` for smooth steering
-- Summing `a(t+1)-a(t)` for smooth change in acceleration
+- Summing the pow2 of (`delta`+`v`) for penalty for steering with high velocity 
+- Summing pow2 of (`delta(t+1)-delta(t)`) for smooth steering
+- Summing pow2 of (`a(t+1)-a(t)`) for smooth change in acceleration
 
-Each one of the cost compnent have weights that determines its importance in planning. I experimented with the weights to find the best set of weights for the performance. 
+Each one of the cost compnent have weights that determines their importance in control planning. I experimented with the weights to find the best set of weights for the performance. 
 
-For planning, the code minimizes the cost function over with the defined constraints. 
+For planning, the code minimizes the cost function over the time with the defined constraints. 
 
 # Timestep Length and Frequency
-The MPC algorithm takes the time length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance that makes the drive unstable or with high error. I chose `N=7` and `dt=0.15` for the best performance through experiments. Decreasing or increasing `N`, with constant frequency, resulted in destabilizing the drive becasue of too short or too long planning time. Also increasing `N` for too long could increase the computation cost. Also, increasing the frequency results in planning with coarse planning that results in instability in turns, while decreasing the frequency with constant timestep length again reduces the planning time. 
+The MPC algorithm takes the timestep length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance. I settled on `N=7` and `dt=0.15` for the best performance through different experiments. Decreasing or increasing `N`, with constant frequency, resulted in destabilizing the drive becasue of too short or too long planning time. Also increasing `N` for too long could increase the computation cost. Increasing the frequency time results in planning with coarse time steps that leads to large error in turns, while decreasing the frequency with constant timestep length again reduces the planning time and could make the control unstable. 
 
 # Polynomial Fitting and MPC Preprocessing
-In the main function, waypoints (motion map, ptsx) is transfered into the car coordinates (px,py,psi) with:
+In the main function, motion map waypoints (ptsx, ptsy) is transfered into the car coordinates (px,py,psi) with:
 ```
 xshift = ptsx - px;
 yshift = ptsy - py;
 x_shifted(i) = xshift*cos(-psi) - yshift*sin(-psi);
 y_shifted(i) = xshift*sin(-psi) + yshift*cos(-psi);
 ```
-Then, a 3rd order polynomial is fit to the points and fed to the MPC algorithm for calculations of `cte` and `psi` values over the planning time. After MPC processing, it returns the steering angle that and throttle that is gave to the simulator with proper conversion. The MPC algorithm also returns the planned points with (`N` and `dt`) for the following time.
+Then, a 3rd order polynomial is fit to the points and fed to the MPC algorithm for calculations of `cte` and `psi` values over the planning time. After MPC processing, it returns the steering angle that and throttle that are gave to the simulator with proper conversion (-sterring_angle. throttle/degtorad(25)). The MPC algorithm also returns the planned points with (`N` and `dt`) for the following time steps that is shown in simulator.
 
 # Model Predictive Control with Latency
-In order to compensate for the latency, the state variables are projected to the time after latency (current time), based on the kenematics of the motion as: 
+In order to compensate for the latency, the state variables are projected to the time after latency (current time), based on the kenematics of the motion with constant speed as: 
 ```
 x = v*dt;
 y = 0;
@@ -53,15 +53,16 @@ v = v + a * dt;
 cte = cte + v * sin(psi) * dt;
 epsi = epsi - delta / Lf * dt;
 ```
+This elminates the errors due to latency in the MPC calculations. 
 
 # Results
-In order to verify the performance of the MPC model, in the simulator, I strted the car on the side of the track and recorded the cross track error (`cte`), error in heading direction (`psi`) as the MPC tries to drive the car to the center of the track.
+In order to verify the performance of the MPC model, in the simulator, I strted the car from the side of the track and recorded the cross track error (`cte`), error in heading direction (`psi`) while the MPC tries to drive the car to the center of the track.
 
 <img src="./Pictures/Errors.png" width="600" alt="Combined Image" />
 
-Initially the car starts with high `cte` but the `psi` is almost correct. The MPC somoothly reduces the `cte` while the `psi` increases (as expected) and returns back to the correct direction.
+Initially the car starts with high `cte` but the `epsi` is almost zero (correct direction). The MPC somoothly reduces the `cte` while the `abs(epsi)` increases, while steering to the center of track, and returns back to the zero.
 
-Also, the actuation values are recorded as shown below. The steering angle is constrained between [-1,1] with high cost for changing direction, therefore the angle smoothly changes and returns back to zero. As the car is initally has zero speed, the throttle is pushed all the way to reach the desired speed and gradually released when close the desired speed (50 mph). The velocity is alos shown that is gradually increased to reach the desired value. 
+Also, the actuation values are recorded and shown below. The steering angle is constrained between [-1,1] with high cost for changing direction, therefore the angle smoothly changes and returns back to zero. As the car is initally stationary, the throttle is pushed all the way to reach the desired speed and gradually released when close the desired speed (50 mph). The velocity is also shown that gradually increase to reach the desired value and is kept there. 
 
 <img src="./Pictures/Parameters.png" width="600" alt="Combined Image" />
 
