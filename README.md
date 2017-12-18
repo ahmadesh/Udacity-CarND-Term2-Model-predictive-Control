@@ -16,19 +16,17 @@ epsi[t+1] = psi[t] - psides[t] + v[t] * delta[t-1] / Lf * dt
 ```
 
 ## Cost
-The costs to minimize consists of the following terms over time:
-- Summing the `cte` 
-- Summing the `epsi`
-- Summing the pow2 of the (`v` - `reference vel`)
-- Summing `delta`
-- Summing `a`
-- Summing the pow2 of (`delta`+`v`) for penalty for steering with high velocity 
-- Summing pow2 of (`delta(t+1)-delta(t)`) for smooth steering
-- Summing pow2 of (`a(t+1)-a(t)`) for smooth change in acceleration
+The MPC algorithm minimized the costs over the given time with the following terms:
+- `pow2(cte)`
+- `pow2(epsi)`
+- `pow2(v- reference_vel)`
+- `pow2(delta)`
+- `pow2(a)`
+- `pow2(delta*v)` for penalty of steering with high velocity 
+- `pow2(delta(t+1)-delta(t))` for smooth steering
+- `pow2(a(t+1)-a(t))` for smooth change in acceleration
 
-Each one of the cost compnent have weights that determines their importance in control planning. I experimented with the weights to find the best set of weights for the performance. 
-
-For planning, the code minimizes the cost function over the time with the defined constraints. 
+Each one of the cost compnent have weights that determines their importance in control planning. I experimented with the weights to find the best set of weights with the best performance. For planning, the code minimizes the cost function over the time with the defined constraints. 
 
 # Timestep Length and Frequency
 The MPC algorithm takes the timestep length (`N`) and frequency (`dt`). Setting these parameters is critical to the performance. I settled on `N=7` and `dt=0.15` for the best performance through different experiments. Decreasing or increasing `N`, with constant frequency, resulted in destabilizing the drive becasue of too short or too long planning time. Also increasing `N` for too long could increase the computation cost. Increasing the frequency time results in planning with coarse time steps that leads to large error in turns, while decreasing the frequency with constant timestep length again reduces the planning time and could make the control unstable. 
